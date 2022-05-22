@@ -31,16 +31,30 @@ addangle <- function(angle, color = 1, label = TRUE) {
   if (label) text(1.25*x, 1.25*y, angle, col = colors[color])
 }
 
+compliment <- function() {
+  phrases <- c("Way to go!", "You did it!", "Math is you!", "Go Victor!", "You're a pro!", paste(rep(emo::ji("clap"), 3), collapse = ""))
+  cat(sample(phrases, 1), "\n")
+  }
+
+encouragement <- function() {
+  phrases <- c("You can do this!", "Try another problem.", "Keep at it.", "Don't give up.", "Practice makes progress.", "The more you practice the better you'll get.")
+cat(sample(phrases, 1), "\n")
+}
+
+
 getresponse <- function(solution) {
   ans <- readline()
+  if (ans == "s") return()
   if (is.na(ans) || suppressWarnings(is.na(as.numeric(ans)))) {
     alldone()
     return(-1)
     } else {
     if(as.numeric(ans) == solution) {
       usethis::ui_done("Correct!")
+      compliment()
       } else {
       usethis::ui_oops(paste("Incorrect. The answer is:", solution))
+      encouragement()
       }
     }
 }

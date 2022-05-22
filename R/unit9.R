@@ -22,14 +22,14 @@ sin_cos_tan_0to360 <- function() {
   func <- sample(c("sin", "cos", "tan"), 1)
   cat("What is", func, angle, "?\n")
   cat("Answer as a decimal with two decimal places.\n")
-  cat("Hint: sqrt(3)/2 = .87; sqrt(2)/2 = .71; sqrt(3) = 1.73; 1/sqrt(3) = .58; enter 9999 for undefined.\n")
+  cat("Hint: √3/2 = .87; √2/2 = .71; √3 = 1.73; 1/√3 = .58; enter 9999 for undefined.\n")
   solution <- dplyr::case_when(
     func == "sin" ~ sin(angle*pi/180),
     func == "cos" ~ cos(angle*pi/180),
     func == "tan" ~ tan(angle*pi/180)
   )
   solution <- round(solution, 2)
-  if (solution > 1000000) solution <- "Undefined"
+  if (solution > 1000000) solution <- 9999
   getresponse(solution)
 }
 
