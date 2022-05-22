@@ -1,13 +1,18 @@
 Package: mathRus
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Customized math problems for Julian
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Joyce Robbins <jtr13@columbia.edu>
+Maintainer: Joyce Robbins <jtr13@columbia.edu>
+Description: Helps Zupie learn math.
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/jtr13/mathRus
 BugReports: https://github.com/jtr13/mathRus/issues
+License: MIT + file LICENSE
+Imports: 
+    dplyr,
+    googlesheets4,
+    graphics,
+    usethis
+RoxygenNote: 7.1.2
