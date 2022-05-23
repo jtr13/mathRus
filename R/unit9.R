@@ -26,25 +26,21 @@ whats_the_angle <- function() {
   getresponse(angle)
 }
 
-#' Find another angle with the same sin or cos
+#' Find another angle with the same sin, cos or tan
 #'
 #' Ex.Find an angle A between 0 and 360 degrees such that
 #' sin A =  sin 55
 
 #' @export
 
-same_sin_cos <- function() {
+same_trig_func <- function() {
   angle <- sample(72,1)*5
-  func <- sample(c("sin", "cos"), 1)
+  func <- sample(c("sin", "cos", "tan"), 1)
   cat("Find an angle A between 0 and 360 degrees such that\n")
   cat(paste(func, "A = ", func, angle, " "))
   drawunitcircle()
   addangle(angle)
-  if(func == "sin") {
-    solution <- ifelse(quadrant(angle) <=2, 180 - angle, 540 - angle)
-    } else {
-    solution <- 360 - angle
-    }
+  solution <- get_other_angle(func, angle)
   x <- getresponse(solution)
   addangle(solution, 2)
   return(x)
@@ -109,10 +105,7 @@ inverse_trig <- function() {
   cat("Round to the nearest integer.")
   sol1 <- round(match.fun(paste0("a", func))(value)*180/pi)
   if (sol1 < 0) sol1 <- sol1 + 360
-  sol2 <- switch(which(allfunc == func),
-                      switch(quadrant(sol1), 180-sol1, 180-sol1, 540-sol1, 540-sol1),
-                      360 - sol1,
-                      switch(quadrant(sol1), 180+sol1, 180+sol1, sol1-180, sol1-180))
+  sol2 <- get_other_angle(func, sol1)
   if (sol1 != sol2) {
     getresponse(c(sol1, sol2))
   } else {

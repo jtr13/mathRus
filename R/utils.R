@@ -8,7 +8,13 @@ quadrant <- function(angle) {
   quad
 }
 
-
+get_other_angle <- function(func, angle) {
+  allfunc <- c("sin", "cos", "tan")
+  switch(which(allfunc == func),
+         switch(quadrant(angle), 180-angle, 180-angle, 540-angle, 540-angle),
+         360 - angle,
+         switch(quadrant(angle), 180+angle, 180+angle, angle-180, angle-180))
+}
 
 drawunitcircle <- function() {
   theta <- seq(0, 2*pi, length.out = 200)

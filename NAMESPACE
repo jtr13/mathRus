@@ -3,7 +3,7 @@
 export(domath)
 export(inverse_trig)
 export(pythagorean_identity)
-export(same_sin_cos)
+export(same_trig_func)
 export(sin_cos_tan)
 export(whats_the_angle)
 importFrom(graphics,abline)
