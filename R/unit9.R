@@ -85,7 +85,7 @@ pythagorean_identity <- function() {
   value <- round(match.fun(func)(angle*pi/180), 3)
   cat("What is", otherfunc, "A, if", func, "A = ", value, "and\n")
   cat("A is in Quadrant", quadrant(angle), "? Round to 2 decimal places.\n")
-  solution <- round(ifelse(func == "sin", cos(angle*pi/180), sin(angle*pi/180)), 2)
+  solution <- round(match.fun(otherfunc)(angle*pi/180), 2)
   getresponse(solution)
 }
 
