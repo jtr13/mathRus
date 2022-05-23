@@ -6,7 +6,7 @@
 \alias{mathRus-package}
 \title{mathRus: Customized math problems for Julian}
 \description{
-Helps Zupie learn math
+Helps Zupie learn math.
 }
 \seealso{
 Useful links:

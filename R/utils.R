@@ -1,19 +1,12 @@
 #' @importFrom graphics abline text arrows
 
 quadrant <- function(angle) {
+  quadnames <- c("first", "second", "third", "fourth")
   angle <- angle %% 360
-  floor(angle/90+1)
+  quad <- floor(angle/90+1)
+  names(quad) <- quadnames[quad]
+  quad
 }
-
-
-sinsol <- function(angle) {
-  dplyr::case_when(
-    quadrant(angle) <= 2 ~ 180 - angle,
-    TRUE ~ 540 - angle
-  )
-}
-
-cossol <- function(angle) 360 - angle
 
 drawunitcircle <- function() {
   theta <- seq(0, 2*pi, length.out = 200)
