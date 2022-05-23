@@ -1,4 +1,5 @@
-#' @importFrom graphics abline text arrows
+#' @importFrom graphics abline text arrows plot.new
+#' @importFrom utils read.csv
 
 quadrant <- function(angle) {
   quadnames <- c("first", "second", "third", "fourth")

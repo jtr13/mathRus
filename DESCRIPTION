@@ -11,6 +11,7 @@ URL: https://github.com/jtr13/mathRus
 BugReports: https://github.com/jtr13/mathRus/issues
 License: MIT + file LICENSE
 Imports:
+    emo,
     googlesheets4,
     graphics,
     usethis
