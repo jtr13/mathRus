@@ -10,8 +10,7 @@ LazyData: true
 URL: https://github.com/jtr13/mathRus
 BugReports: https://github.com/jtr13/mathRus/issues
 License: MIT + file LICENSE
-Imports: 
-    dplyr,
+Imports:
     googlesheets4,
     graphics,
     usethis
