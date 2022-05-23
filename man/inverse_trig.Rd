@@ -8,5 +8,5 @@ inverse_trig()
 }
 \description{
 Ex. What is cos A, if sin A =  0.423 and
-A is in Quadrant 1 ? Round to 2 decimal points.
+A is in Quadrant 1 ? Round to 2 decimal places.
 }

@@ -8,6 +8,8 @@ quadrant <- function(angle) {
   quad
 }
 
+
+
 drawunitcircle <- function() {
   theta <- seq(0, 2*pi, length.out = 200)
   x <- cos(theta); y <- sin(theta)
@@ -25,7 +27,7 @@ addangle <- function(angle, color = 1, label = TRUE) {
 }
 
 compliment <- function() {
-  phrases <- c("Way to go!", "You did it!", "Math is you!", "Go Victor!", "You're a pro!", paste(rep(emo::ji("clap"), 3), collapse = ""))
+  phrases <- c("Way to go!", "You did it!", "Math is you!", "Go Victor!", "You're a pro!", paste(rep(emo::ji("clap"), 3), collapse = ""), "Woohoo!", "You rock.", "You're the Federer of math.")
   cat(sample(phrases, 1), "\n")
   }
 
@@ -42,13 +44,32 @@ getresponse <- function(solution) {
     alldone()
     return(-1)
     } else {
-    if(as.numeric(ans) == solution) {
+    if(as.numeric(ans) %in% solution) {
       usethis::ui_done("Correct!")
       compliment()
       } else {
-      usethis::ui_oops(paste("Incorrect. The answer is:", solution))
-      encouragement()
+      if (length(solution) == 1) {
+        usethis::ui_oops(paste("Incorrect. The answer is:", solution))
+        encouragement()
+      } else {
+        usethis::ui_oops("Incorrect. Try again.")
       }
+      }
+    if (length(solution) > 1) {
+      cat("Please enter a second answer.")
+      ans2 <- readline()
+      if((ans == ans2) && (ans %in% solution)) {
+        cat("You already entered that solution.\n")
+        return()
+      }
+      if(as.numeric(ans2) %in% solution) {
+        usethis::ui_done("Correct!")
+        compliment()
+      } else {
+        usethis::ui_oops(paste("Incorrect. The answers are:", solution[1], "and", solution[2], "."))
+        encouragement()
+      }
+    }
     }
 }
 

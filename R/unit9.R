@@ -45,8 +45,9 @@ same_sin_cos <- function() {
     } else {
     solution <- 360 - angle
     }
-  getresponse(solution)
+  x <- getresponse(solution)
   addangle(solution, 2)
+  return(x)
 }
 
 #' Unit circle practice
@@ -74,7 +75,7 @@ sin_cos_tan <- function() {
 #' Practice with sin^2 X + cos^2 X = 1
 #'
 #' Ex. What is cos A, if sin A =  0.423 and
-#' A is in Quadrant 1 ? Round to 2 decimal points.
+#' A is in Quadrant 1 ? Round to 2 decimal places.
 
 #' @export
 
@@ -87,7 +88,7 @@ pythagorean_identity <- function() {
   otherfunc <- ifelse(func == "sin", "cos", "sin")
   value <- round(match.fun(func)(angle), 3)
   cat("What is", otherfunc, "A, if", func, "A = ", value, "and\n")
-  cat("A is in Quadrant", quadrant(angle), "? Round to 2 decimal points.\n")
+  cat("A is in Quadrant", quadrant(angle), "? Round to 2 decimal places.\n")
   solution <- round(ifelse(func == "sin", cos(angle*pi/180), sin(angle*pi/180)), 2)
   getresponse(solution)
 }
@@ -95,12 +96,27 @@ pythagorean_identity <- function() {
 #' Inverse trig functions
 #'
 #' Ex. What is cos A, if sin A =  0.423 and
-#' A is in Quadrant 1 ? Round to 2 decimal points.
+#' A is in Quadrant 1 ? Round to 2 decimal places.
 
 #' @export
 
 inverse_trig <- function() {
   angle <- sample(360, 1)
-  func <- sample(c("sin", "cos", "tan"), 1)
-
+  allfunc <- c("sin", "cos", "tan")
+  func <- sample(allfunc, 1)
+  value <- round(match.fun(func)(angle*pi/180), 3)
+  cat("Solve for 𝞱 (0 ≤𝞱≤ 360):", func, "𝞱 = ", value, "\n")
+  cat("Round to the nearest integer.")
+  sol1 <- round(match.fun(paste0("a", func))(value)*180/pi)
+  if (sol1 < 0) sol1 <- sol1 + 360
+  sol2 <- switch(which(allfunc == func),
+                      switch(quadrant(sol1), 180-sol1, 180-sol1, 540-sol1, 540-sol1),
+                      360 - sol1,
+                      switch(quadrant(sol1), 180+sol1, 180+sol1, sol1-180, sol1-180))
+  if (sol1 != sol2) {
+    getresponse(c(sol1, sol2))
+  } else {
+    getresponse(sol1)
+  }
 }
+
