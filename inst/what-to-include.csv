@@ -1,0 +1,6 @@
+unit,f,include,example
+9,whats_the_angle,no,Name a first quadrant angle with sin A = Ã3/2
+9,same_trig_func,yes,Find an angle A between 0 and 360 degrees such that sin A = sin 140.
+9,sin_cos_tan,no,What is sin 45 ?
+9,pythagorean_identity,no,"What is cos A, if sin A = 0.906 and A is in Quadrant 1 ?"
+9,inverse_trig,no,Solve for __ (0 ²__² 360): cos __ = 0.122
