@@ -15,4 +15,6 @@ Imports:
     googlesheets4,
     graphics,
     usethis
+Remotes:
+    hadley/emo
 RoxygenNote: 7.1.2
