@@ -10,6 +10,7 @@
 #'
 
 domath <- function() {
+  plot.new()
   newprob <- NULL
   #df <- googlesheets4::read_sheet("1stu5ekKxtUhwmc7GXk1lCslK-4gsL4t30W8qY-WfIkQ")
   df <- read.csv("inst/what-to-include.csv")

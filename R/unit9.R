@@ -38,10 +38,10 @@ same_trig_func <- function() {
   func <- sample(c("sin", "cos", "tan"), 1)
   cat("Find an angle A between 0 and 360 degrees such that\n")
   cat(paste(func, "A = ", func, angle, " "))
-  drawunitcircle()
-  addangle(angle)
   solution <- get_other_angle(func, angle)
   x <- getresponse(solution)
+  drawunitcircle()
+  addangle(angle)
   addangle(solution, 2)
   return(x)
 }
@@ -77,8 +77,6 @@ sin_cos_tan <- function() {
 
 pythagorean_identity <- function() {
   angle <- sample(72,1)*5
-  drawunitcircle()
-  addangle(angle, label = FALSE)
   quad <- quadrant(angle)
   func <- sample(c("sin", "cos"), 1)
   otherfunc <- ifelse(func == "sin", "cos", "sin")
@@ -86,7 +84,10 @@ pythagorean_identity <- function() {
   cat("What is", otherfunc, "A, if", func, "A = ", value, "and\n")
   cat("A is in Quadrant", quadrant(angle), "? Round to 2 decimal places.\n")
   solution <- round(match.fun(otherfunc)(angle*pi/180), 2)
-  getresponse(solution)
+  x <- getresponse(solution)
+  drawunitcircle()
+  addangle(angle)
+  return(x)
 }
 
 #' Inverse trig functions
@@ -107,9 +108,13 @@ inverse_trig <- function() {
   if (sol1 < 0) sol1 <- sol1 + 360
   sol2 <- get_other_angle(func, sol1)
   if (sol1 != sol2) {
-    getresponse(c(sol1, sol2))
+    x <- getresponse(c(sol1, sol2))
   } else {
-    getresponse(sol1)
+    x <- getresponse(sol1)
   }
+  drawunitcircle()
+  addangle(sol1)
+  addangle(sol2, 2)
+  return(x)
 }
 
