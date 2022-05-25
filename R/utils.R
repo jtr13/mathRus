@@ -51,7 +51,7 @@ cat(sample(phrases, 1), "\n")
 
 
 getresponse <- function(solution) {
-  if (solution[1]==solution[2]) solution <- solution[1]
+  if (length(solution) > 1 && solution[1]==solution[2]) solution <- solution[1]
   ans <- readline()
   if (ans == "s") return()
   if (is.na(ans) || suppressWarnings(is.na(as.numeric(ans)))) {

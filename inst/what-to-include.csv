@@ -4,4 +4,4 @@ unit,f,include,example
 9,sin_cos_tan,yes,What is sin 45 ?
 9,pythagorean_identity,yes,"What is cos A, if sin A = 0.906 and A is in Quadrant 1 ?"
 9,inverse_trig,yes,Solve for __ (0 ?__? 360): cos __ = 0.122
-9, sincos, yes
+9,sincos,yes
