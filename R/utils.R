@@ -9,6 +9,12 @@ quadrant <- function(angle) {
   quad
 }
 
+ref_angle <- function(angle) {
+  quad <- quadrant(angle)
+  angle <- angle %% 360
+  switch(quad, angle, 180-angle, angle-180, 360-angle)
+}
+
 get_other_angle <- function(func, angle) {
   allfunc <- c("sin", "cos", "tan")
   switch(which(allfunc == func),
@@ -45,6 +51,7 @@ cat(sample(phrases, 1), "\n")
 
 
 getresponse <- function(solution) {
+  if (solution[1]==solution[2]) solution <- solution[1]
   ans <- readline()
   if (ans == "s") return()
   if (is.na(ans) || suppressWarnings(is.na(as.numeric(ans)))) {

@@ -107,14 +107,30 @@ inverse_trig <- function() {
   sol1 <- round(match.fun(paste0("a", func))(value)*180/pi)
   if (sol1 < 0) sol1 <- sol1 + 360
   sol2 <- get_other_angle(func, sol1)
-  if (sol1 != sol2) {
-    x <- getresponse(c(sol1, sol2))
-  } else {
-    x <- getresponse(sol1)
-  }
+  x <- getresponse(c(sol1, sol2))
   drawunitcircle()
   addangle(sol1)
   addangle(sol2, 2)
   return(x)
 }
 
+#' sin A = cos B
+#'
+#' Ex. What is cos A, if sin A =  0.423 and
+#' A is in Quadrant 1 ? Round to 2 decimal places.
+
+#' @export
+#'
+
+sincos <- function() {
+  angle <- sample(seq(0, 180, 5), 1)
+  allfunc <- c("sin", "cos")
+  func <- sample(allfunc, 1)
+  otherfunc <- ifelse(func == "sin", "cos", "sin")
+  sol1 <- ifelse(match.fun(func)(angle*pi/180) >= 0,
+                 90 - ref_angle(angle),
+                 270 - ref_angle(angle))
+  sol2 <- get_other_angle(otherfunc, sol1)
+  cat("Find A given", otherfunc, "A =", func, angle, "\n")
+  getresponse(c(sol1, sol2))
+}
