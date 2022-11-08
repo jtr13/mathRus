@@ -40,12 +40,14 @@ addangle <- function(angle, color = 1, label = TRUE) {
 }
 
 compliment <- function() {
-  phrases <- c("Way to go!", "You did it!", "Math is you!", "Go Victor!", "You're a pro!", paste(rep(emo::ji("clap"), 3), collapse = ""), "Woohoo!", "You rock.", "You're the Federer of math.")
+  #phrases <- c("Way to go!", "You did it!", "Math is you!", "Go Victor!", "You're a pro!", paste(rep(emo::ji("clap"), 3), collapse = ""), "Woohoo!", "You rock.", "You're Nadal on clay.")
+  phrases <- "You're Nadal on clay."
   cat(sample(phrases, 1), "\n")
   }
 
 encouragement <- function() {
-  phrases <- c("You can do this!", "Try another problem.", "Keep at it.", "Don't give up.", "Practice makes progress.", "The more you practice the better you'll get.")
+  #phrases <- c("You can do this!", "Try another problem.", "Keep at it.", "Don't give up.", "Practice makes progress.", "The more you practice the better you'll get.")
+  phrases <- c(paste("The Celtics made mistakes too tonight but tomorrow's a new day.", emo::ji("sun")))
 cat(sample(phrases, 1), "\n")
 }
 
